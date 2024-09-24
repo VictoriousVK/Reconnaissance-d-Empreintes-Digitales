@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Système d'Authentification par Empreinte Digitale</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Système d'Authentification par Empreinte Digitale</h1>
+        
+        <div class="form-section">
+            <h2>Enregistrement d'une empreinte</h2>
+            <form id="register-form">
+                <input type="text" id="register-image" placeholder="Chemin de l'image" required>
+                <button type="submit">Enregistrer</button>
+            </form>
+            <div id="register-response"></div>
+        </div>
+
+        <div class="form-section">
+            <h2>Authentification d'une empreinte</h2>
+            <form id="authenticate-form">
+                <input type="text" id="authenticate-image" placeholder="Chemin de l'image" required>
+                <button type="submit">Authentifier</button>
+            </form>
+            <div id="authenticate-response"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('register-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const imagePath = document.getElementById('register-image').value;
+            fetch('/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ image_path: imagePath }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('register-response').innerText = data.message;
+            })
+            .catch(error => console.error('Error:', error));
+        });
+
+        document.getElementById('authenticate-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const imagePath = document.getElementById('authenticate-image').value;
+            fetch('/authenticate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ image_path: imagePath }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('authenticate-response').innerText = `Authenticated: ${data.authenticated}`;
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+Présentation du Projet de Reconnaissance d'Empreintes Digitales
+Contexte
+Avec l'essor des technologies de sécurité biométrique, la reconnaissance d'empreintes digitales est devenue une méthode de plus en plus prisée pour l'authentification et la sécurité des accès. Ce projet vise à développer un système de reconnaissance d'empreintes digitales basé sur des techniques de machine learning, plus précisément en utilisant l'algorithme K-Nearest Neighbors (KNN).
+
+Objectifs du Projet
+Développer un Système d'Enregistrement des Empreintes : Permettre aux utilisateurs d'enregistrer leurs empreintes digitales dans une base de données.
+
+Mettre en Place un Mécanisme d'Authentification : Fournir un moyen d'authentifier les utilisateurs en comparant les empreintes digitales scannées à celles enregistrées.
+
+Créer une API avec Flask : Développer une interface backend qui permet la communication entre le système et les utilisateurs via des requêtes HTTP.
+
+Interface Utilisateur : Concevoir une interface frontale simple et intuitive pour interagir avec le système d'enregistrement et d'authentification.
+
+Technologies Utilisées
+Langage de Programmation : Python
+Bibliothèques :
+OpenCV : Pour le traitement des images.
+Scikit-Learn : Pour les algorithmes de machine learning (KNN).
+Joblib : Pour la sérialisation et la désérialisation des modèles d'empreintes digitales.
+Flask : Pour créer l'API backend.
+HTML/CSS : Pour construire l'interface utilisateur.
+Fonctionnalités Principales
+Enregistrement d'Empreintes :
+
+Les utilisateurs peuvent soumettre une image d'empreinte digitale.
+L'image est prétraitée et les caractéristiques sont extraites et stockées.
+Authentification :
+
+Les utilisateurs peuvent soumettre une image d'empreinte pour authentification.
+Le système compare l'image soumise avec les empreintes enregistrées et retourne un résultat d'authentification.
+API RESTful :
+
+Deux endpoints principaux :
+POST /register : Pour enregistrer une empreinte.
+POST /authenticate : Pour authentifier une empreinte.
+Architecture du Système
+Frontend : Interface utilisateur développée en HTML/CSS qui interagit avec l'API Flask.
+Backend : API Flask qui gère la logique d'enregistrement et d'authentification des empreintes.
+Base de Données de Caractéristiques : Stocke les caractéristiques des empreintes digitales pour la comparaison.
+Perspectives d'Avenir
+Amélioration de l'Algorithme : Explorer d'autres techniques de machine learning pour améliorer la précision du système, comme les réseaux de neurones convolutifs (CNN).
+Système de Sécurité Intelligent : Développer un système pour des applications spécifiques comme la sécurité d'entreprise ou le contrôle d'accès dans les établissements scolaires.
+Extension des Fonctionnalités : Ajouter des fonctionnalités comme la gestion des utilisateurs, des journaux d'authentification, et des alertes de sécurité.
+
+Conclusion
+Ce projet représente une opportunité de fusionner les compétences en développement logiciel et en machine learning pour créer une solution pratique et innovante dans le domaine de la sécurité biométrique. En poursuivant ce projet, l'objectif est de non seulement fournir un système fonctionnel, mais aussi d'explorer les défis techniques et éthiques associés à l'utilisation de la biométrie dans notre société.
+
